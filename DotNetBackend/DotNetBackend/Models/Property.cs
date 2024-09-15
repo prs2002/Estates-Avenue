@@ -1,18 +1,27 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DotNetBackend.Models
+public class Property
 {
-    public class Property
-    {
-        [Key]
-        public int Pid { get; set; }
-        public string? Name { get; set; }
-        public string? Location { get; set; }
-        public decimal Rate { get; set; }
-        public string? PropertyType { get; set; }
+    [Key]
+    [Column("id")]
+    public int Pid { get; set; }
 
-        // MongoDB references (stored as strings)
-        public string? ExecutiveId { get; set; }
-        public string? CustomerId { get; set; }
-    }
+    [Column("name")]
+    public string? Name { get; set; }
+
+    [Column("location")]
+    public string? Location { get; set; }
+
+    [Column("rate")]
+    public decimal Rate { get; set; }
+
+    [Column("propertyType")]
+    public string? PropertyType { get; set; }
+
+    [Column("executive_id")]
+    public string? ExecutiveId { get; set; }
+
+    [Column("customer_id")]
+    public string? CustomerId { get; set; }
 }

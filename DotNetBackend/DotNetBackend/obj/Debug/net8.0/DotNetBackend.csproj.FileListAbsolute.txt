@@ -148,3 +148,4 @@ D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\obj\Debug\net8.0\r
 D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\obj\Debug\net8.0\DotNetBackend.pdb
 D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\obj\Debug\net8.0\DotNetBackend.genruntimeconfig.cache
 D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\obj\Debug\net8.0\ref\DotNetBackend.dll
+D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\obj\Debug\net8.0\DotNetBackend.sourcelink.json

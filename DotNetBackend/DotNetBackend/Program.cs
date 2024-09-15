@@ -1,5 +1,7 @@
+using DotNetBackend.Models;
 using DotNetBackend.Repositories;
 using DotNetBackend.Services;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
 namespace DotNetBackend
@@ -9,7 +11,6 @@ namespace DotNetBackend
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
 
             // Add services to the container.
             builder.Services.AddSession(options =>
@@ -33,10 +34,14 @@ namespace DotNetBackend
             builder.Services.AddSingleton(sp =>
                 sp.GetRequiredService<IOptions<REdbSettings>>().Value
             );
-
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             builder.Services.AddScoped<ICustomerRepo, CustomerRepo>();
-
             builder.Services.AddScoped<ICustomerService, CustomerService>();
+            builder.Services.AddScoped<IExecutiveRepo, ExecutiveRepo>();
+            builder.Services.AddScoped<IExecutiveService, ExecutiveService>();
+            builder.Services.AddScoped<IPropertyRepo, PropertyRepo>();
+            builder.Services.AddScoped<IPropertyService, PropertyService>();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
