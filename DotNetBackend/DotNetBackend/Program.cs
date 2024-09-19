@@ -13,18 +13,35 @@ namespace DotNetBackend
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigins",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:4200")  // Adjust to your frontend URL
+                               .AllowAnyHeader()
+                               .AllowAnyMethod()
+                               .AllowCredentials();
+                    });
+            });
+
             builder.Services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(30); // Adjust the session timeout as needed
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
+                options.Cookie.SameSite = SameSiteMode.None; // Enable cross-origin cookies
+                options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // Ensure the cookie is sent over HTTPS
             });
             builder.Services.AddAuthentication("Cookies")
                 .AddCookie(options =>
                 {
                     options.LoginPath = "/customers/login";  // Define your login path
                     options.LogoutPath = "/customers/logout";
-                });
+                    options.LoginPath = "/users/login";  // Define your login path
+                    options.LogoutPath = "/users/logout";
+                }); 
 
             builder.Services.AddDistributedMemoryCache();
             builder.Services.AddControllers();
@@ -37,7 +54,9 @@ namespace DotNetBackend
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             builder.Services.AddScoped<ICustomerRepo, CustomerRepo>();
-            builder.Services.AddScoped<ICustomerService, CustomerService>();
+            builder.Services.AddScoped<ICustomerService, CustomerService>(); 
+            builder.Services.AddScoped<IUserRepo, UserRepo>();
+            builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IExecutiveRepo, ExecutiveRepo>();
             builder.Services.AddScoped<IExecutiveService, ExecutiveService>();
             builder.Services.AddScoped<IPropertyRepo, PropertyRepo>();
@@ -58,6 +77,7 @@ namespace DotNetBackend
             app.UseHttpsRedirection();
             app.UseSession();
             app.UseAuthorization();
+            app.UseCors("AllowSpecificOrigins");  // Use CORS
             app.MapControllers();
             app.Run();
         }

@@ -19,6 +19,9 @@ public class Property
     [Column("propertyType")]
     public string? PropertyType { get; set; }
 
+    [Column("Description")]
+    public string? Desc { get; set; }
+
     [Column("executive_id")]
     public string? ExecutiveId { get; set; }
 

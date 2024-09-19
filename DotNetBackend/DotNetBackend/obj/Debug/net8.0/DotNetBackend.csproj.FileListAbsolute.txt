@@ -149,3 +149,4 @@ D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\obj\Debug\net8.0\D
 D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\obj\Debug\net8.0\DotNetBackend.genruntimeconfig.cache
 D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\obj\Debug\net8.0\ref\DotNetBackend.dll
 D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\obj\Debug\net8.0\DotNetBackend.sourcelink.json
+D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
