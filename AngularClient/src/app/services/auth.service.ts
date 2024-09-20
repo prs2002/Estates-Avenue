@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,18 +14,28 @@ export class AuthService {
 
   login(email: string, password: string): Observable<any> {
     const loginData = { email, password };
-    return this.http.post(`${this.apiUrl}/login`, loginData, { withCredentials: true });
+    return this.http.post(`${this.apiUrl}/login`, loginData)
+      .pipe(
+        tap((response: any) => {
+          localStorage.setItem('jwt', response.token);  // Store JWT
+          localStorage.setItem('userType', response.user.userType);  // Store user type
+        })
+      );
   }
   register(userData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/register`, userData, { withCredentials: true });
   }
-  logout(): Observable<any> {
-    return this.http.post(`${this.apiUrl}/logout`, {}, { withCredentials: true });
+
+  logout(){
+    localStorage.removeItem('jwt');
+    localStorage.removeItem('userType');
   }
 
-  // Check session status to determine if the user is logged in
-  isAuthenticated(): Observable<{ isAuthenticated: boolean }> {
-    return this.http.get<{ isAuthenticated: boolean }>(`${this.apiUrl}/check-session`, { withCredentials: true });
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem('jwt');  // Check if the JWT exists
   }
-
+  getUserRole(): string | null {
+    return localStorage.getItem('userType');
+  }
+  
 }

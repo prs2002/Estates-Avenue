@@ -126,17 +126,4 @@ export class ExecDashboardComponent implements OnInit, OnDestroy {
     }
   }
 
-  logout() {
-    this.authService.logout().subscribe({
-      next: (response) => {
-        console.log(response);  // Optional: You can log the response for debugging
-        sessionStorage.clear(); // Clear session data on the client side as well
-        this.router.navigate(['/signin']);  // Redirect to login page
-      },
-      error: (err) => {
-        console.error('Logout failed', err);  // Handle errors if needed
-      }
-    });
-  }
-
 }

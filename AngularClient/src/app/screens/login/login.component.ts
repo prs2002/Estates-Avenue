@@ -37,7 +37,7 @@ export class LoginComponent {
         this.loginSuccess = true;
         this.loginFailed = false;
           // Redirect based on userType
-          if (userType === "user") {
+          if (userType === "customer") {
             console.log("navigating to " +response.user.userType+" dashboard");
             this.router.navigate(['/cust-dashboard']);
           } else {

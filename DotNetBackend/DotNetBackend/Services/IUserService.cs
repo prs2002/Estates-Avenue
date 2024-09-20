@@ -12,5 +12,7 @@ namespace DotNetBackend.Services
         Task DeleteUserAsync(string id);
         Task UpdateUserAsync(string id, User user);
         Task<User> FindByEmailAsync(string email);
+        string GenerateJwtToken(User user);
+
     }
 }

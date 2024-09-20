@@ -1,5 +1,6 @@
 ﻿using DotNetBackend.Models;
 using DotNetBackend.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,6 +33,7 @@ namespace DotNetBackend.Controllers
             return Ok(user);
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpGet("by-location/{locality}")]
         public async Task<IActionResult> GetUsersByLocation(string locality)
         {
@@ -71,54 +73,25 @@ namespace DotNetBackend.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
         {
-            Console.WriteLine($"Received login request for email: {loginRequest.Email}");
-
             var user = await _userService.LoginAsync(loginRequest.Email, loginRequest.Password);
             if (user != null)
             {
-                Console.WriteLine($"User found: {user.Email}");
-
-                if (user.Id != null)
+                var token = _userService.GenerateJwtToken(user);
+                //return Ok(new { Message = "Login successful", user,token });
+                return Ok(new
                 {
-                    HttpContext.Session.SetString("UserId", user.Id);
-                    HttpContext.Session.SetString("UserEmail", user.Email);
-
-                    Console.WriteLine("Login successful");
-                    return Ok(new { Message = "Login successful", User = user });
-                }
-                else
-                {
-                    Console.WriteLine("User ID is null");
-                    return BadRequest("User ID cannot be null");
-                }
+                    Token = token,
+                    User = new
+                    {
+                        user.Id,
+                        user.Email,
+                        user.UserType
+                    }
+                });
             }
 
-            Console.WriteLine("Invalid credentials");
             return Unauthorized("Invalid credentials");
         }
-
-        [HttpPost("logout")]
-        public IActionResult Logout()
-        {
-            // Clear session on logout
-            HttpContext.Session.Clear();
-            return Ok("Logged out");
-        }
-
-        [HttpGet("check-session")]
-        public IActionResult CheckSession()
-        {
-            var userId = HttpContext.Session.GetString("UserId");
-            var userEmail = HttpContext.Session.GetString("UserEmail");
-            if (userId != null && userEmail != null)
-            {
-                return Ok(new { isAuthenticated = true, userId, userEmail });
-            }
-
-            return Ok(new { isAuthenticated = false });
-        }
-
-
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(string id)

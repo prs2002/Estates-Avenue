@@ -13,6 +13,7 @@ export class HeaderComponent {
   isMobileView: boolean = false;
   isMenuOpen: boolean = false;
   isLoggedIn: boolean = false;  // Tracks login status
+  userType: string | null = null;  // Tracks the user's role (userType)
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -62,25 +63,35 @@ export class HeaderComponent {
     }
   }
 
+  // checkAuthentication() {
+  //   this.authService.isAuthenticated().subscribe((response) => {
+  //     console.log('Auth Response:', response); // Debugging the API response
+  //     this.isLoggedIn = response.isAuthenticated;
+  //     console.log('Is Logged In:', this.isLoggedIn); // Check if this is correctly updated
+  //   });
+  // }
   checkAuthentication() {
-    this.authService.isAuthenticated().subscribe((response) => {
-      console.log('Auth Response:', response); // Debugging the API response
-      this.isLoggedIn = response.isAuthenticated;
-      console.log('Is Logged In:', this.isLoggedIn); // Check if this is correctly updated
-    });
+    this.isLoggedIn = !!localStorage.getItem('jwt');  // Check if JWT exists in local storage
+    this.userType = localStorage.getItem('userType');  // Get the userType from localStorage
   }
 
   logout() {
-    this.authService.logout().subscribe({
-      next: (response) => {
-        console.log(response);  // Optional: You can log the response for debugging
-        this.isLoggedIn = false;
-        this.router.navigate(['/signin']);  // Redirect to login page
-      },
-      error: (err) => {
-        console.error('Logout failed', err);  // Handle errors if needed
-      }
-    });
+    this.authService.logout();
+    this.isLoggedIn = false;
+    this.userType = null;  // Clear userType on logout
+    this.router.navigate(['/signin']);  // Redirect to login page
+  }
+
+  isCustomer(): boolean {
+    return this.userType === 'user';
+  }
+
+  isManager(): boolean {
+    return this.userType === 'manager';
+  }
+
+  isExecutive(): boolean {
+    return this.userType === 'executive';
   }
 
 }
