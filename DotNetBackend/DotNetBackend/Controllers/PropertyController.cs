@@ -1,5 +1,6 @@
 ﻿using DotNetBackend.Models;
 using DotNetBackend.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -40,6 +41,7 @@ namespace DotNetBackend.Controllers
             return Ok(location);
         }
 
+        [Authorize(Roles = "Manager")] // Only managers can access this route
         [HttpPost]
         public async Task<IActionResult> CreateProperty([FromBody] Property property)
         {

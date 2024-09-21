@@ -19,7 +19,7 @@ public class Property
     [Column("propertyType")]
     public string? PropertyType { get; set; }
 
-    [Column("Description")]
+    [Column("description")]
     public string? Desc { get; set; }
 
     [Column("executive_id")]
@@ -27,4 +27,7 @@ public class Property
 
     [Column("customer_id")]
     public string? CustomerId { get; set; }
+
+    [Column("image_url")]
+    public string? ImageUrl { get; set; }
 }

@@ -17,7 +17,8 @@ const routes: Routes = [
   // { path: 'exec-dashboard', component: ExecDashboardComponent},
   { path: 'cust-dashboard', component: CustDashboardComponent, canActivate: [authGuard], data: { roles: 'customer' } },
   { path: 'exec-dashboard', component: ExecDashboardComponent,canActivate: [authGuard], data: { roles: ['manager','executive'] } },
-  { path: 'properties', component: PropertiesComponent },
+  // { path: 'properties', component: PropertiesComponent },
+  { path: 'properties', component: PropertiesComponent,canActivate: [authGuard], data: { roles: ['manager','customer'] } },
 ];
 
 @NgModule({
