@@ -227,7 +227,40 @@
     .price {
     font-weight: 500;
     }
-    
+    .delete-btn {
+        flex: 1; /* Ensure both buttons take equal space */
+        background-color: red;
+        margin: 0 10px;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        padding: 8px 12px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .edit-btn {
+        flex: 1; /* Ensure both buttons take equal space */
+        background-color: rgb(55, 40, 115);
+        margin: 0 10px;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        padding: 8px 12px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .delete-btn:hover {
+        background-color: darkred;
+        border-radius: 10px;
+        border: none;
+        color: white;
+    }
+    .edit-btn:hover {
+        background-color: rgb(38, 27, 85);
+        border-radius: 10px;
+        border: none;
+        color: white;
+    }
     
     @media screen and (max-width: 1200px) {
     

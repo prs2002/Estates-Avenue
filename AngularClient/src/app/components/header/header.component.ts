@@ -2,6 +2,7 @@ import { Component,HostListener } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { filter } from 'rxjs/operators';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'; // Import the icon
 
 @Component({
   selector: 'app-header',
@@ -14,21 +15,13 @@ export class HeaderComponent {
   isMenuOpen: boolean = false;
   isLoggedIn: boolean = false;  // Tracks login status
   userType: string | null = null;  // Tracks the user's role (userType)
+  dropdownIcon = faChevronDown; // Define the icon
 
   constructor(private authService: AuthService, private router: Router) {}
-
-  // ngOnInit(): void {
-  //   // Check if the user is logged in when the component is initialized
-  //   this.authService.isAuthenticated().subscribe((response) => {
-  //     this.isLoggedIn = response.isAuthenticated;  // Use the isAuthenticated value from the response
-  //   });
-  // }
 
   ngOnInit(): void {
     // Call the check on initialization
     this.checkAuthentication();
-
-    // Subscribe to router events to trigger check when route changes
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd) // Only trigger on NavigationEnd event
     ).subscribe(() => {
@@ -63,13 +56,6 @@ export class HeaderComponent {
     }
   }
 
-  // checkAuthentication() {
-  //   this.authService.isAuthenticated().subscribe((response) => {
-  //     console.log('Auth Response:', response); // Debugging the API response
-  //     this.isLoggedIn = response.isAuthenticated;
-  //     console.log('Is Logged In:', this.isLoggedIn); // Check if this is correctly updated
-  //   });
-  // }
   checkAuthentication() {
     this.isLoggedIn = !!localStorage.getItem('jwt');  // Check if JWT exists in local storage
     this.userType = localStorage.getItem('userType');  // Get the userType from localStorage
@@ -83,7 +69,7 @@ export class HeaderComponent {
   }
 
   isCustomer(): boolean {
-    return this.userType === 'user';
+    return this.userType === 'customer';
   }
 
   isManager(): boolean {
@@ -92,6 +78,10 @@ export class HeaderComponent {
 
   isExecutive(): boolean {
     return this.userType === 'executive';
+  }
+
+  goToProfile() {
+    this.router.navigate(['/profile']); // Adjust the route according to your routing setup
   }
 
 }

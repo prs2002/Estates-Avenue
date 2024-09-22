@@ -12,6 +12,9 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  getToken(): string | null {
+    return localStorage.getItem('jwt'); // Replace with your storage logic
+  }
   login(email: string, password: string): Observable<any> {
     const loginData = { email, password };
     return this.http.post(`${this.apiUrl}/login`, loginData)

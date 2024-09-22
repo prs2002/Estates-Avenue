@@ -1,0 +1,40 @@
+<section class="customers">
+    <div class="prop-img" [ngStyle]="{'background-image': 'url(../assets/spacejoy-c0JoR_-2x3E-unsplash.jpg)'}">
+        <div class="propoverlay">
+            <p class="p1"></p>
+        </div>
+    </div>
+    <div class="prop-desc">
+        <p></p>
+    </div>
+    <div class="list-of-prop">
+        <div class="heading-button">
+            <h1>Customers List</h1>
+        </div>
+        <div class="flex">
+            <table>
+            <thead>
+                <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Number</th>
+                <th>Location</th>
+                <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of customers">
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.email }}</td>
+                <td>{{ employee.number }}</td>
+                <td>{{ employee.location }}</td>
+                <td>
+                    <a [routerLink]="['/employees', employee.email]" class="btn-view">View</a>
+                    <button (click)="deleteEmployee(employee.email)" class="btn-delete">Delete</button>
+                </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+</section>

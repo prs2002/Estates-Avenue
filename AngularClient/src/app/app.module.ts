@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { CustDashboardComponent } from './screens/cust-dashboard/cust-dashboard.component';
 import { ExecDashboardComponent } from './screens/exec-dashboard/exec-dashboard.component';
 import { PropertyEditScreenComponent } from './screens/property-edit-screen/property-edit-screen.component';
-import { PropertyScreenComponent } from './screens/property-screen/property-screen.component';
 import { LandingScreenComponent } from './screens/landing-screen/landing-screen.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -18,6 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './screens/login/login.component';
 import { RegisterComponent } from './screens/register/register.component';
 import { PropertiesComponent } from './screens/properties/properties.component';
+import { CustomersComponent } from './screens/customers/customers.component';
+import { ExecutivesComponent } from './screens/executives/executives.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +26,14 @@ import { PropertiesComponent } from './screens/properties/properties.component';
     CustDashboardComponent,
     ExecDashboardComponent,
     PropertyEditScreenComponent,
-    PropertyScreenComponent,
     LandingScreenComponent,
     FooterComponent,
     HeaderComponent,
     LoginComponent,
     RegisterComponent,
     PropertiesComponent,
+    CustomersComponent,
+    ExecutivesComponent,
   ],
   imports: [
     BrowserModule,

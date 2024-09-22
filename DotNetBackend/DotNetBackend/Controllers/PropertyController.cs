@@ -41,7 +41,7 @@ namespace DotNetBackend.Controllers
             return Ok(location);
         }
 
-        [Authorize(Roles = "Manager")] // Only managers can access this route
+        [Authorize(Roles = "manager")] // Only managers can access this route
         [HttpPost]
         public async Task<IActionResult> CreateProperty([FromBody] Property property)
         {
@@ -49,6 +49,7 @@ namespace DotNetBackend.Controllers
             return CreatedAtAction(nameof(GetPropertyById), new { id = createdProperty.Pid }, createdProperty);
         }
 
+        [Authorize(Roles = "manager")] // Only managers can access this route
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateProperty(int id, [FromBody] Property property)
         {
@@ -56,6 +57,7 @@ namespace DotNetBackend.Controllers
             return NoContent();
         }
 
+        [Authorize(Roles = "manager")] // Only managers can access this route
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProperty(int id)
         {

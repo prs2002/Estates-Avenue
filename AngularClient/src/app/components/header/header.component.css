@@ -34,7 +34,53 @@ nav {
     position: absolute;
     right: 1%;
   }
-  
+  .dropdown {
+    float: right;
+    position: relative;
+    display: block;
+    color: white; 
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  .dropbtn {
+      background-color: transparent;
+      color: white;
+      padding: 14px 16px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+  }
+
+  .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      
+  }
+
+  .dropdown:hover .dropdown-content {
+      border-radius: 10px;
+      margin-right: 5px;
+      display: block;
+  }
+
+  .dropdown-content a {
+      color: black;
+      padding: 14px 16px;
+      border-radius: 10px;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+  }
+
+  .dropdown-content a:hover {
+      background-color: #f1f1f1;
+  }
   .navbar .list {
     float: right;
   }
@@ -51,52 +97,14 @@ nav {
     border-bottom: 2px solid rgb(255, 255, 255); 
   }
   
-  .hamburger-icon {
-    position: absolute;
-    right: 5%;
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 20px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-  }
-  
-  
-  .hamburger-icon span {
-    width: 100%;
-    height: 5px;
-    color: white;
-    transition: all 0.3s ease;
-    font-size: 20px;
-  }
-
-  .cozy {
-    font-size: 20px;
-    font-weight: 500;
-    margin: 0 100px;
-  }
-  
   .right {
     position: absolute;
     right: 1%;
   }
   
-  @media screen and (max-width: 992px) {
-    .cozy {
-      margin-left: 50px;
-    }
-  }
-  
   @media screen and (max-width: 768px) {
     .listhead {
       display: none;
-    }
-  
-    .hamburger-icon {
-      display: flex;
     }
   
     .responsive-menu {
@@ -121,13 +129,7 @@ nav {
       padding: 5px;
       border-radius: 5px; 
     }
-  
-    .cozy {
-      margin: 0 25px;
-    }
-  
   }
-  
 
   @media screen and (max-width: 480px) {
     .navbar {

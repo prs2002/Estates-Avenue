@@ -59,6 +59,10 @@ namespace DotNetBackend.Services
         {
             return _userRepo.FindByEmailAsync(email);
         }
+        public async Task<List<User>> GetUsersByTypeAsync(string userType)
+        {
+            return await _userRepo.GetUsersByTypeAsync(userType);
+        }
 
         public string GenerateJwtToken(User user)
         {
@@ -75,18 +79,20 @@ namespace DotNetBackend.Services
             };
 
             // Add role claims
-            if (user.UserType == "Manager")
+            if (user.UserType == "manager")
             {
-                claims.Add(new Claim(ClaimTypes.Role, "Manager"));
+                claims.Add(new Claim(ClaimTypes.Role, "manager"));
             }
-            else if (user.UserType == "Executive")
+            else if (user.UserType == "executive")
             {
-                claims.Add(new Claim(ClaimTypes.Role, "Executive"));
+                claims.Add(new Claim(ClaimTypes.Role, "executive"));
             }
             else
             {
-                claims.Add(new Claim(ClaimTypes.Role, "Customer"));
+                claims.Add(new Claim(ClaimTypes.Role, "customer"));
             }
+            new Claim(JwtRegisteredClaimNames.Aud, "https://localhost:7033/"); // Add audience here
+
 
             // Generate the security key from the configuration
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JwtSettings:Secret"]));
@@ -96,8 +102,8 @@ namespace DotNetBackend.Services
 
             // Generate the JWT token
             var token = new JwtSecurityToken(
-                issuer: _config["Jwt:Issuer"],
-                audience: _config["Jwt:Issuer"],
+                issuer: _config["JwtSettings:Issuer"],
+                audience: _config["JwtSettings:Audience"],
                 claims: claims,
                 expires: DateTime.Now.AddMinutes(30),  // Token expiration
                 signingCredentials: credentials        // Sign the token

@@ -33,6 +33,20 @@ namespace DotNetBackend.Controllers
             return Ok(user);
         }
 
+        [HttpGet("getCustomers")]
+        public async Task<IActionResult> GetCustomers()
+        {
+            var customers = await _userService.GetUsersByTypeAsync("customer");
+            return Ok(customers);
+        }
+
+        [HttpGet("getExecutives")]
+        public async Task<IActionResult> GetExecutives()
+        {
+            var executives = await _userService.GetUsersByTypeAsync("executive");
+            return Ok(executives);
+        }
+
         [Authorize(Roles = "Manager")]
         [HttpGet("by-location/{locality}")]
         public async Task<IActionResult> GetUsersByLocation(string locality)

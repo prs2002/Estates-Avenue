@@ -16,7 +16,7 @@ namespace DotNetBackend
             var builder = WebApplication.CreateBuilder(args);
 
             var jwtSettings = builder.Configuration.GetSection("JwtSettings");
-            var key = Encoding.ASCII.GetBytes(jwtSettings["Secret"]);
+            var key = Encoding.UTF8.GetBytes(jwtSettings["Secret"]);
 
             // Add services to the container.
 
@@ -32,20 +32,6 @@ namespace DotNetBackend
                     });
             });
 
-            //builder.Services.AddSession(options =>
-            //{
-            //    options.IdleTimeout = TimeSpan.FromMinutes(30); // Adjust the session timeout as needed
-            //    options.Cookie.HttpOnly = true;
-            //    options.Cookie.IsEssential = true;
-            //    options.Cookie.SameSite = SameSiteMode.None; // Enable cross-origin cookies
-            //   options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // Ensure the cookie is sent over HTTPS
-            //});
-            //  builder.Services.AddAuthentication("Cookies")
-            //      .AddCookie(options =>
-            //      {
-            //          options.LoginPath = "/users/login";  // Define your login path
-            //          options.LogoutPath = "/users/logout";
-            //      }); 
             builder.Services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -63,17 +49,17 @@ namespace DotNetBackend
                       ValidateAudience = true,
                       ValidateLifetime = true,
                       ValidateIssuerSigningKey = true,
-                      ValidIssuer = jwtSettings["Jwt:Issuer"],
-                      ValidAudience = jwtSettings["Jwt:Audience"],
+                      ValidIssuer = jwtSettings["Issuer"],
+                      ValidAudience = jwtSettings["Audience"],
                       IssuerSigningKey = new SymmetricSecurityKey(key)
                   };
               });
 
             builder.Services.AddAuthorization(options =>
             {
-                options.AddPolicy("ManagerPolicy", policy => policy.RequireRole("Manager"));
-                options.AddPolicy("ExecutivePolicy", policy => policy.RequireRole("Executive"));
-                options.AddPolicy("CustomerPolicy", policy => policy.RequireRole("Customer"));
+                options.AddPolicy("ManagerPolicy", policy => policy.RequireRole("manager"));
+                options.AddPolicy("ExecutivePolicy", policy => policy.RequireRole("executive"));
+                options.AddPolicy("CustomerPolicy", policy => policy.RequireRole("customer"));
             });
 
             builder.Services.AddDistributedMemoryCache();
@@ -107,6 +93,7 @@ namespace DotNetBackend
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseAuthorization();
             app.UseCors("AllowSpecificOrigins");  // Use CORS

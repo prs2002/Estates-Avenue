@@ -53,7 +53,23 @@
                 <h1>{{ property.name }}</h1>
                 <p class="price">{{ property.rate | currency:'INR' }}</p>
                 <p class="desc">{{ property.desc }}</p>
+                <button *ngIf="isManager" class="edit-btn" (click)="editProperty(property)">Edit</button>
+                <button *ngIf="isManager" class="delete-btn" (click)="deleteProperty(property.pid)">Delete</button>
             </div>
         </div>
+        <!-- Edit form only appears if editableProperty is not null -->
+        <div *ngIf="editableProperty" class="edit-property-form">
+            <form (submit)="updateProperty()">
+            <input type="text" [(ngModel)]="editableProperty.name" name="name" placeholder="Property Name" required />
+            <input type="text" [(ngModel)]="editableProperty.location" name="location" placeholder="Location" required />
+            <input type="number" [(ngModel)]="editableProperty.rate" name="rate" placeholder="Rate" required />
+            <input type="text" [(ngModel)]="editableProperty.propertyType" name="propertyType" placeholder="Property Type" required />
+            <textarea [(ngModel)]="editableProperty.desc" name="desc" placeholder="Description" required></textarea>
+            <input type="file" (change)="onFileChange($event)" accept="image/*" />
+        
+            <button type="submit">Update Property</button>
+            <button type="button" (click)="cancelEdit()">Cancel</button>
+            </form>
+        </div>  
     </div>
 </section>

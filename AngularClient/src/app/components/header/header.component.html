@@ -4,73 +4,30 @@
     <div class="listhead" *ngIf="!isMobileView">
       <!-- SignIn and Logout links -->
       <li class="list" routerLinkActive="active" *ngIf="!isLoggedIn"><a href="#" routerLink="/signin">SignIn</a></li>
-      <li class="list" *ngIf="isLoggedIn"><a href="#" (click)="logout()">Logout</a></li>
-
-      <!-- Role-based links -->
-      <li class="list" routerLinkActive="active" *ngIf="isCustomer()"><a href="#" routerLink="/cust-dashboard">Customer Dashboard</a></li>
-      <li class="list" routerLinkActive="active" *ngIf="isManager()"><a href="#" routerLink="/manager-dashboard">Manager Dashboard</a></li>
-      <li class="list" routerLinkActive="active" *ngIf="isExecutive()"><a href="#" routerLink="/exec-dashboard">Executive Dashboard</a></li>
-
-      <!-- Common links -->
-      <li class="list" routerLinkActive="active"><a href="#" routerLink="/enquiries">Enquiries</a></li>
-      <li class="list" routerLinkActive="active"><a href="#" routerLink="/mortgagecalculator">Agents</a></li>
-      <li class="list" routerLinkActive="active"><a href="#" routerLink="/maps">Gallery</a></li>
-      <li class="list" routerLinkActive="active"><a href="#" routerLink="/properties">Properties</a></li>
-      <li class="list" routerLinkActive="active"><a href="#" routerLink="/home">Home</a></li> 
-    </div>
+      <!-- <li class="list" *ngIf="isLoggedIn"><a href="#" (click)="logout()">Logout</a></li> -->
+      <li class="dropdown" *ngIf="isLoggedIn">
+        <a href="#" class="dropbtn">Hi {{ userType }} <fa-icon [icon]="dropdownIcon"></fa-icon></a>
+        <div class="dropdown-content">
+            <a (click)="goToProfile()">Profile</a>
+            <a (click)="logout()">Logout</a>
+        </div>
+      </li>
     
-    <!-- Hamburger Menu for Mobile View -->
-    <button class="hamburger-icon" (click)="toggleMenu()">
-      <span *ngIf="!isMenuOpen">&#9776;</span>
-      <span *ngIf="isMenuOpen">&#10005;</span>
-    </button>
-    
-    <!-- Responsive Menu -->
-    <div class="responsive-menu" *ngIf="isMenuOpen">
-      <li class="list" routerLinkActive="active" *ngIf="!isLoggedIn"><a href="#" routerLink="/signin">SignIn</a></li>
-      <li class="list" *ngIf="isLoggedIn"><a href="#" (click)="logout()">Logout</a></li>
-      
-      <!-- Role-based responsive links -->
-      <li class="list" routerLinkActive="active" *ngIf="isCustomer()"><a href="#" routerLink="/cust-dashboard">Customer Dashboard</a></li>
-      <li class="list" routerLinkActive="active" *ngIf="isManager()"><a href="#" routerLink="/manager-dashboard">Manager Dashboard</a></li>
-      <li class="list" routerLinkActive="active" *ngIf="isExecutive()"><a href="#" routerLink="/exec-dashboard">Executive Dashboard</a></li>
 
-      <li class="list" routerLinkActive="active"><a href="#" routerLink="/enquiries">Enquiries</a></li>
-      <li class="list" routerLinkActive="active"><a href="#" routerLink="/mortgagecalculator">Agents</a></li>
-      <li class="list" routerLinkActive="active"><a href="#" routerLink="/maps">Gallery</a></li>
+      <li class="list" routerLinkActive="active" *ngIf="isCustomer()"><a href="#" routerLink="/cust-dashboard">My Cart</a></li>
+      <li class="list" routerLinkActive="active" *ngIf="isManager()"><a href="#" routerLink="/exec-dashboard">Customer Requests</a></li>
+      <li class="list" routerLinkActive="active" *ngIf="isExecutive()"><a href="#" routerLink="/exec-dashboard">My Customers</a></li>
+
+      <li class="list" routerLinkActive="active" *ngIf="isManager()"><a href="#" routerLink="/executives">Executives</a></li>
+      <li class="list" routerLinkActive="active" *ngIf="isExecutive()"><a href="#" routerLink="/customers">Customers</a></li>
+      <li class="list" routerLinkActive="active" *ngIf="isManager()"><a href="#" routerLink="/customers">Customers</a></li>
+
       <li class="list" routerLinkActive="active"><a href="#" routerLink="/properties">Properties</a></li>
-      <li class="list" routerLinkActive="active"><a href="#" routerLink="/home">Home</a></li> 
+
+      <li class="list" routerLinkActive="active" *ngIf="!isLoggedIn"><a href="#" routerLink="/home">Home</a></li> 
+      <li class="list" routerLinkActive="active" *ngIf="isCustomer()"><a href="#" routerLink="/cust-dashboard">Home</a></li>
+      <li class="list" routerLinkActive="active" *ngIf="isManager()"><a href="#" routerLink="/exec-dashboard">Home</a></li>
+      <li class="list" routerLinkActive="active" *ngIf="isExecutive()"><a href="#" routerLink="/exec-dashboard">Home</a></li>
     </div>
   </ul>
 </nav>
-
-
-<!-- 
-<nav class="navbar" [style.background-color]="navbarColor">
-    <ul>
-      <li class="logo"><img routerLink="/home" src="../assets/logo.png"></li>
-      <div class="listhead" *ngIf="!isMobileView">
-        <li class="list" routerLinkActive="active" *ngIf="!isLoggedIn"><a href="#" routerLink="/signin">SignIn</a></li>
-        <li class="list" *ngIf="isLoggedIn"><a href="#" (click)="logout()">Logout</a></li>
-        
-        <li class="list" routerLinkActive="active"><a href="#" routerLink="/enquiries">Enquiries</a></li>
-        <li class="list" routerLinkActive="active"><a href="#" routerLink="/mortgagecalculator">Agents </a></li>
-        <li class="list" routerLinkActive="active"><a href="#" routerLink="/maps">Gallery</a></li>
-        <li class="list" routerLinkActive="active"><a href="#" routerLink="/properties">Properties</a></li>
-        <li class="list" routerLinkActive="active"><a href="#" routerLink="/home">Home</a></li> 
-      </div>
-      <button class="hamburger-icon" (click)="toggleMenu()">
-        <span *ngIf="!isMenuOpen">&#9776;</span>
-        <span *ngIf="isMenuOpen">&#10005;</span> 
-      </button>
-      <div class="responsive-menu" *ngIf="isMenuOpen">
-        <li class="list" routerLinkActive="active" *ngIf="!isLoggedIn"><a href="#" routerLink="/signin">SignIn</a></li>
-        <li class="list" *ngIf="isLoggedIn"><a href="#" (click)="logout()">Logout</a></li>
-        <li class="list" routerLinkActive="active"><a href="#" routerLink="/enquiries">Enquiries</a></li>
-        <li class="list" routerLinkActive="active"><a href="#" routerLink="/mortgagecalculator">Agents </a></li>
-        <li class="list" routerLinkActive="active"><a href="#" routerLink="/maps">Gallery</a></li>
-        <li class="list" routerLinkActive="active"><a href="#" routerLink="/properties">Properties</a></li>
-        <li class="list" routerLinkActive="active"><a href="#" routerLink="/home">Home</a></li> 
-      </div>
-    </ul>
-  </nav> -->

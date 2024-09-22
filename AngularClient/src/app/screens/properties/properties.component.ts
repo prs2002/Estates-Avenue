@@ -20,6 +20,7 @@ export class PropertiesComponent implements OnInit {
   propoverlaytext1:string = "Properties For Rent"
   propoverlaytext2:string = "Explore diverse range of rental properties tailored to your needs. Whether it's a cozy residential retreat, a bustling commercial space, or an industrial hub, find the perfect rental to fuel your aspirations. Unlock endless possibilities with curated selection of properties for rent."
   isPropertyFormVisible: boolean = false;
+  isEditFormVisible: boolean = false;
 
   properties: Property[] = [];
   filteredProperties: Property[] = [];
@@ -37,6 +38,7 @@ export class PropertiesComponent implements OnInit {
   };
   selectedImage: File | null = null; // To hold the image file
   isManager: boolean = false;
+  editableProperty: Property | null = null; // Hold the property to be edited
 
   constructor(private propertyService: PropertyService,private authService: AuthService) { }
 
@@ -92,7 +94,51 @@ export class PropertiesComponent implements OnInit {
       });
     }
   }
+  editProperty(property: Property): void {
+    this.editableProperty = { ...property }; // Create a copy of the selected property
+    this.isEditFormVisible = true; // Show the form
+  }
+  // editProperty(property: Property): void {
+  //   const dialogRef = this.dialog.open(EditPropertyComponent, {
+  //     width: '400px',
+  //     data: property
+  //   });
+  
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if (result) {
+  //       // Refresh properties or handle success
+  //     }
+  //   });
+  // }
+  // Cancel the edit operation
+  cancelEdit(): void {
+    this.editableProperty = null;
+    this.isEditFormVisible = false;
+  }
 
+  // Update the property with new details
+  updateProperty(): void {
+    if (this.editableProperty) {
+      this.propertyService.updateProperty(this.editableProperty).subscribe(response => {
+        this.fetchProperties(); // Refresh property list after update
+        this.isEditFormVisible = false; // Hide the form
+        this.editableProperty = null; // Reset editable property
+      });
+    }
+  }
+  deleteProperty(propertyId: number): void {
+    if (confirm('Are you sure you want to delete this property?')) {
+      this.propertyService.deleteProperty(propertyId).subscribe(
+        () => {
+          this.fetchProperties(); // Refresh the list after deletion
+        },
+        error => {
+          console.error('Error deleting property:', error);
+        }
+      );
+    }
+  }
+  
   filterItems(): void {
     this.filteredProperties = this.properties.filter(property =>
       property.name.toLowerCase().includes(this.searchTerm.toLowerCase())

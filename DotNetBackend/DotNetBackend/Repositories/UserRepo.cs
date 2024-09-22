@@ -1,4 +1,5 @@
 ﻿using DotNetBackend.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
@@ -25,7 +26,11 @@ namespace DotNetBackend.Repositories
         {
             return await _users.Find(user => user.Id == id).FirstOrDefaultAsync();
         }
-
+        public async Task<List<User>> GetUsersByTypeAsync(string userType)
+        {
+            var filter = Builders<User>.Filter.Eq(u => u.UserType, userType);
+            return await _users.Find(filter).ToListAsync();
+        }
         public async Task<List<User>> GetUserByLocationAsync(string locality)
         {
             return await _users.Find(user => user.Location == locality).ToListAsync();

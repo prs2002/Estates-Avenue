@@ -7,18 +7,19 @@ import { CustDashboardComponent } from './screens/cust-dashboard/cust-dashboard.
 import { ExecDashboardComponent } from './screens/exec-dashboard/exec-dashboard.component';
 import { PropertiesComponent } from './screens/properties/properties.component';
 import { authGuard } from './guards/auth.guard';
+import { CustomersComponent } from './screens/customers/customers.component';
+import { ExecutivesComponent } from './screens/executives/executives.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: LandingScreenComponent },
   { path: 'signin', component: LoginComponent },
   { path: 'signup', component: RegisterComponent },
-  // { path: 'cust-dashboard', component: CustDashboardComponent},
-  // { path: 'exec-dashboard', component: ExecDashboardComponent},
   { path: 'cust-dashboard', component: CustDashboardComponent, canActivate: [authGuard], data: { roles: 'customer' } },
   { path: 'exec-dashboard', component: ExecDashboardComponent,canActivate: [authGuard], data: { roles: ['manager','executive'] } },
-  // { path: 'properties', component: PropertiesComponent },
   { path: 'properties', component: PropertiesComponent,canActivate: [authGuard], data: { roles: ['manager','customer'] } },
+  { path: 'customers', component: CustomersComponent,canActivate: [authGuard], data: { roles: ['manager','executive'] } },
+  { path: 'executives', component: ExecutivesComponent,canActivate: [authGuard], data: { roles: ['manager'] } },
 ];
 
 @NgModule({
