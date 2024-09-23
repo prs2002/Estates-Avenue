@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { PropertyService } from '../../services/property.service';
-import { Property } from '../../models/Property';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { faFilter, faMagnifyingGlass, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { Property } from '../../models/Property';
 import { AuthService } from 'src/app/services/auth.service';
+import { PropertyService } from '../../services/property.service';
+import { CustReqService } from 'src/app/services/cust-req.service';
 
 @Component({
   selector: 'app-properties',
@@ -11,6 +14,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class PropertiesComponent implements OnInit {
 
+  customerId: string; // Assume you have this from user authentication
   heading:string = "List of Properties";
   plusicon = faPlusCircle;
   searchicon = faMagnifyingGlass;
@@ -40,8 +44,35 @@ export class PropertiesComponent implements OnInit {
   isManager: boolean = false;
   editableProperty: Property | null = null; // Hold the property to be edited
 
-  constructor(private propertyService: PropertyService,private authService: AuthService) { }
-
+  constructor(private propertyService: PropertyService, private authService: AuthService,
+    private reqService: CustReqService, private http: HttpClient, private router: Router){
+    this.customerId = this.authService.getCustomerId()?? '';  // Fetch the customerId from AuthService
+  }
+  addToWishlist(property: any) {
+    const customerRequest = {
+      customerId: this.customerId,          // Current user's ID
+      propertyId: property.pid.toString(),             // ID of the clicked property
+      locality: property.location,          // Location of the property
+      requestStatus: 'pending'              // Set status as 'pending'
+    };
+    this.reqService.addToWishlist(customerRequest).subscribe({
+      next: (response) => {
+        if (response.message === "Property added to wishlist successfully.") {
+          console.log(response);
+          alert('Property added to your wishlist!');
+          this.router.navigate(['/wishlist']);
+        }
+      },
+      error: (err) => {
+        if (err.status === 409) {
+          alert('This property is already in your wishlist.');
+        } else {
+          console.error('Error adding to wishlist', err);
+          alert('Failed to add property to wishlist. Please try again.');
+        }
+      }
+    });
+  }
   ngOnInit(): void {
     this.fetchProperties();
     this.checkUserRole();
@@ -98,19 +129,7 @@ export class PropertiesComponent implements OnInit {
     this.editableProperty = { ...property }; // Create a copy of the selected property
     this.isEditFormVisible = true; // Show the form
   }
-  // editProperty(property: Property): void {
-  //   const dialogRef = this.dialog.open(EditPropertyComponent, {
-  //     width: '400px',
-  //     data: property
-  //   });
-  
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     if (result) {
-  //       // Refresh properties or handle success
-  //     }
-  //   });
-  // }
-  // Cancel the edit operation
+ 
   cancelEdit(): void {
     this.editableProperty = null;
     this.isEditFormVisible = false;

@@ -31,9 +31,11 @@ namespace DotNetBackend.Repositories
             var filter = Builders<User>.Filter.Eq(u => u.UserType, userType);
             return await _users.Find(filter).ToListAsync();
         }
-        public async Task<List<User>> GetUserByLocationAsync(string locality)
+        public async Task<List<User>> GetUserByLocationAsync(string locality, string userType)
         {
-            return await _users.Find(user => user.Location == locality).ToListAsync();
+            return await _users
+                .Find(user => user.Location == locality && user.UserType == userType)
+                .ToListAsync();
         }
 
         public async Task<User> CreateUserAsync(User user)

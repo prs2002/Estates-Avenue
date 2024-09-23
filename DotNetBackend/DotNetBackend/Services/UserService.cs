@@ -36,9 +36,9 @@ namespace DotNetBackend.Services
         {
             return _userRepo.GetUserByIdAsync(id);
         }
-        public async Task<List<User>> GetByLocationAsync(string locality)
+        public async Task<List<User>> GetByLocationAsync(string locality, string userType)
         {
-            return await _userRepo.GetUserByLocationAsync(locality);
+            return await _userRepo.GetUserByLocationAsync(locality, userType);
         }
         public async Task<User?> LoginAsync(string email, string password)
         {

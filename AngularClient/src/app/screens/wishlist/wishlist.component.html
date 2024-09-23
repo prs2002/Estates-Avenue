@@ -1,0 +1,39 @@
+<section class="customers">
+    <div class="prop-img" [ngStyle]="{'background-image': 'url(../assets/spacejoy-c0JoR_-2x3E-unsplash.jpg)'}">
+      <div class="propoverlay">
+        <p class="p1"></p>
+      </div>
+    </div>
+    <div class="prop-desc">
+      <p>My Wishlist</p>
+    </div>
+    <div class="list-of-prop">
+      <div class="heading-button">
+        <h1>Wishlist</h1>
+      </div>
+      <div class="flex">
+        <table>
+          <thead>
+            <tr>
+              <th>Property ID</th>
+              <th>Location</th>
+              <th>Status</th>
+              <th>Executive Name</th>
+              <th>Executive Email</th>
+              <th>Executive Number</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let request of wishlist">
+              <td>{{ request.propertyId }}</td>
+              <td>{{ request.locality }}</td>
+              <td>{{ request.requestStatus }}</td>
+              <td>{{ request.executiveDetails?.name || 'Not Assigned' }}</td>
+              <td>{{ request.executiveDetails?.email || 'Not Assigned' }}</td>
+              <td>{{ request.executiveDetails?.number || 'Not Assigned' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>  

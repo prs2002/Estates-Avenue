@@ -14,15 +14,16 @@
       </li>
     
 
-      <li class="list" routerLinkActive="active" *ngIf="isCustomer()"><a href="#" routerLink="/cust-dashboard">My Cart</a></li>
-      <li class="list" routerLinkActive="active" *ngIf="isManager()"><a href="#" routerLink="/exec-dashboard">Customer Requests</a></li>
-      <li class="list" routerLinkActive="active" *ngIf="isExecutive()"><a href="#" routerLink="/exec-dashboard">My Customers</a></li>
+      <li class="list" routerLinkActive="active" *ngIf="isCustomer()"><a href="#" routerLink="/wishlist">My Wishlist</a></li>
+      <li class="list" routerLinkActive="active" *ngIf="isManager()"><a href="#" routerLink="/cust-reqs">Customer Requests</a></li>
+      <li class="list" routerLinkActive="active" *ngIf="isExecutive()"><a href="#" routerLink="/exec-clients">My Customers</a></li>
 
       <li class="list" routerLinkActive="active" *ngIf="isManager()"><a href="#" routerLink="/executives">Executives</a></li>
-      <li class="list" routerLinkActive="active" *ngIf="isExecutive()"><a href="#" routerLink="/customers">Customers</a></li>
-      <li class="list" routerLinkActive="active" *ngIf="isManager()"><a href="#" routerLink="/customers">Customers</a></li>
+      <li class="list" routerLinkActive="active" *ngIf="isExecutive()"><a href="#" routerLink="/customers">All Customers</a></li>
+      <li class="list" routerLinkActive="active" *ngIf="isManager()"><a href="#" routerLink="/customers">All Customers</a></li>
 
-      <li class="list" routerLinkActive="active"><a href="#" routerLink="/properties">Properties</a></li>
+      <li class="list" routerLinkActive="active" *ngIf="isManager()"><a href="#" routerLink="/properties">Properties</a></li>
+      <li class="list" routerLinkActive="active" *ngIf="isCustomer()"><a href="#" routerLink="/properties">Properties</a></li>
 
       <li class="list" routerLinkActive="active" *ngIf="!isLoggedIn"><a href="#" routerLink="/home">Home</a></li> 
       <li class="list" routerLinkActive="active" *ngIf="isCustomer()"><a href="#" routerLink="/cust-dashboard">Home</a></li>

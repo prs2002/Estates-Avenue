@@ -6,3 +6,11 @@ export interface User {
     location: string;
     userType: string; // This will be set to "user" by default
   }
+
+  export interface Executive {
+    id: string;
+    name: string;
+    email: string;
+    number: string;
+  }
+  

@@ -12,7 +12,17 @@
             <h1>Executives List</h1>
         </div>
         <div class="flex">
-            <a [routerLink]="['/employees/new']" class="btn-add">Add New Employee</a>
+            <button (click)="openForm()" class="btn-add">Add New Executive</button>
+            <div *ngIf="showAddExecutiveForm" class="property-form">
+                <form (ngSubmit)="createExecutive()">
+                    <input type="text" placeholder="Name" [(ngModel)]="newExecutive.name" name="name" required />
+                    <input type="email" placeholder="Email" [(ngModel)]="newExecutive.email" name="email" required />
+                    <input type="text" placeholder="Number" [(ngModel)]="newExecutive.number" name="number" required />
+                    <input type="text" placeholder="Location" [(ngModel)]="newExecutive.location" name="location" required />
+                    <input type="text" placeholder="Password" [(ngModel)]="newExecutive.password" name="password" required />
+                    <button type="submit" class="btn-submit">Create Executive</button>
+                </form>
+            </div>
             <table>
             <thead>
                 <tr>
@@ -24,15 +34,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let employee of customers">
-                <td>{{ employee.name }}</td>
-                <td>{{ employee.email }}</td>
-                <td>{{ employee.number }}</td>
-                <td>{{ employee.location }}</td>
+                <tr *ngFor="let executive of customers">
+                <td>{{ executive.name }}</td>
+                <td>{{ executive.email }}</td>
+                <td>{{ executive.number }}</td>
+                <td>{{ executive.location }}</td>
                 <td>
-                    <a [routerLink]="['/employees', employee.email]" class="btn-view">View</a>
-                    <a [routerLink]="['/employees', employee.email]" class="btn-edit">Edit</a>
-                    <button (click)="deleteEmployee(employee.email)" class="btn-delete">Delete</button>
+                    <a [routerLink]="['/employees', executive.email]" class="btn-view">View</a>
+                    <a [routerLink]="['/employees', executive.email]" class="btn-edit">Edit</a>
+                    <button (click)="deleteExecutive(executive.email)" class="btn-delete">Delete</button>
                 </td>
                 </tr>
             </tbody>

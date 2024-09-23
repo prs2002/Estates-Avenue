@@ -53,6 +53,7 @@
                 <h1>{{ property.name }}</h1>
                 <p class="price">{{ property.rate | currency:'INR' }}</p>
                 <p class="desc">{{ property.desc }}</p>
+                <button *ngIf="!isManager" class="edit-btn" (click)="addToWishlist(property)">Add to WishList</button>
                 <button *ngIf="isManager" class="edit-btn" (click)="editProperty(property)">Edit</button>
                 <button *ngIf="isManager" class="delete-btn" (click)="deleteProperty(property.pid)">Delete</button>
             </div>

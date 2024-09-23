@@ -47,11 +47,10 @@ namespace DotNetBackend.Controllers
             return Ok(executives);
         }
 
-        [Authorize(Roles = "Manager")]
         [HttpGet("by-location/{locality}")]
         public async Task<IActionResult> GetUsersByLocation(string locality)
         {
-            var executives = await _userService.GetByLocationAsync(locality);
+            var executives = await _userService.GetByLocationAsync(locality, "executive");
             return Ok(executives);
         }
 
@@ -118,6 +117,18 @@ namespace DotNetBackend.Controllers
             }
             return NotFound();
         }
+        [HttpDelete("delete-by-email/{email}")]
+        public async Task<IActionResult> DeleteUserByEmail(string email)
+        {
+            var result = await _userService.FindByEmailAsync(email);
+            if (result == null) // Check if the user was found
+            {
+                return NotFound(); // Return 404 if user not found
+            }
+            await _userService.DeleteUserAsync(result.Id); // Delete the user by ID
+            return NoContent(); // Return 204 No Content after successful deletion
+        }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(string id, User user)

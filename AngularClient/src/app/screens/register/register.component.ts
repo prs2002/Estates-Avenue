@@ -68,7 +68,7 @@ export class RegisterComponent implements OnInit {
         password: this.signupForm.value.password,
         number: this.signupForm.value.number,
         location: this.signupForm.value.location,
-        userType: 'user' // Ensure that userType is set to "user"
+        userType: 'customer' // Ensure that userType is set to "customer"
       };
       this.authService.register(newUser).subscribe({
         next: (response) => {

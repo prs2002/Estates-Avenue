@@ -12,6 +12,7 @@ D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\bin\Debug\net8.0\A
 D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\bin\Debug\net8.0\BCrypt.Net-Next.dll
 D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\bin\Debug\net8.0\DnsClient.dll
 D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\bin\Debug\net8.0\Humanizer.dll
+D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
 D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
@@ -134,6 +135,7 @@ D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\obj\Debug\net8.0\D
 D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\obj\Debug\net8.0\DotNetBackend.csproj.CoreCompileInputs.cache
 D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\obj\Debug\net8.0\DotNetBackend.MvcApplicationPartsAssemblyInfo.cs
 D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\obj\Debug\net8.0\DotNetBackend.MvcApplicationPartsAssemblyInfo.cache
+D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\obj\Debug\net8.0\DotNetBackend.sourcelink.json
 D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\obj\Debug\net8.0\staticwebassets.build.json
 D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\obj\Debug\net8.0\staticwebassets.development.json
 D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\obj\Debug\net8.0\staticwebassets\msbuild.DotNetBackend.Microsoft.AspNetCore.StaticWebAssets.props
@@ -148,5 +150,3 @@ D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\obj\Debug\net8.0\r
 D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\obj\Debug\net8.0\DotNetBackend.pdb
 D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\obj\Debug\net8.0\DotNetBackend.genruntimeconfig.cache
 D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\obj\Debug\net8.0\ref\DotNetBackend.dll
-D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\obj\Debug\net8.0\DotNetBackend.sourcelink.json
-D:\Projects\Others\EstateVentures\DotNetBackend\DotNetBackend\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

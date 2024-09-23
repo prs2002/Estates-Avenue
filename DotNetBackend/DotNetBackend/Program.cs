@@ -72,12 +72,13 @@ namespace DotNetBackend
             );
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-            builder.Services.AddScoped<ICustomerRepo, CustomerRepo>();
-            builder.Services.AddScoped<ICustomerService, CustomerService>(); 
+
             builder.Services.AddScoped<IUserRepo, UserRepo>();
             builder.Services.AddScoped<IUserService, UserService>();
-            builder.Services.AddScoped<IExecutiveRepo, ExecutiveRepo>();
-            builder.Services.AddScoped<IExecutiveService, ExecutiveService>();
+
+            builder.Services.AddScoped<ICustomerRequestRepo, CustomerRequestRepo>();
+            builder.Services.AddScoped<ICustomerRequestService, CustomerRequestService>();
+
             builder.Services.AddScoped<IPropertyRepo, PropertyRepo>();
             builder.Services.AddScoped<IPropertyService, PropertyService>();
 

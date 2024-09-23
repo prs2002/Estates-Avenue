@@ -1,0 +1,37 @@
+<section class="customers">
+    <div class="prop-img" [ngStyle]="{'background-image': 'url(../assets/spacejoy-c0JoR_-2x3E-unsplash.jpg)'}">
+      <div class="propoverlay">
+        <p class="p1"></p>
+      </div>
+    </div>
+    <div class="prop-desc">
+        <p>Select an Executive for Property in {{ locality }}</p>
+    </div>
+    <div class="list-of-prop">
+      <div class="heading-button">
+        <h1>Executives available in {{ locality }}</h1>
+      </div>
+      <div class="flex">
+        <table>
+            <thead>
+              <tr>
+                <th>Executive Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let executive of executives">
+                <td>{{ executive.name }}</td>
+                <td>{{ executive.email }}</td>
+                <td>{{ executive.number }}</td>
+                <td>
+                  <button (click)="assignExecutive(executive.id)">Assign</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </section>  

@@ -1,0 +1,25 @@
+<!-- Modal form for adding an executive -->
+<div class="modal" *ngIf="showForm">
+    <div class="modal-content">
+      <h2>Add New Executive</h2>
+      <form [formGroup]="addExecutiveForm" (ngSubmit)="submit()">
+        <label for="name">Name</label>
+        <input id="name" formControlName="name" type="text" />
+  
+        <label for="email">Email</label>
+        <input id="email" formControlName="email" type="email" />
+  
+        <label for="number">Phone Number</label>
+        <input id="number" formControlName="number" type="text" />
+  
+        <label for="location">Location</label>
+        <input id="location" formControlName="location" type="text" />
+  
+        <label for="password">Password</label>
+        <input id="password" formControlName="password" type="password" />
+  
+        <button type="submit" [disabled]="addExecutiveForm.invalid">Submit</button>
+        <button type="button" (click)="closeForm()">Cancel</button>
+      </form>
+    </div>
+  </div>  

@@ -22,6 +22,12 @@ export class AuthService {
         tap((response: any) => {
           localStorage.setItem('jwt', response.token);  // Store JWT
           localStorage.setItem('userType', response.user.userType);  // Store user type
+          if(response.user.userType === "customer"){
+            localStorage.setItem('customerId', response.user.id);     // Store user ID (or customer ID)
+          }
+          else if(response.user.userType === "executive"){
+            localStorage.setItem('executiveId', response.user.id);     // Store user ID (or customer ID)
+          }
         })
       );
   }
@@ -31,9 +37,23 @@ export class AuthService {
 
   logout(){
     localStorage.removeItem('jwt');
+    if(localStorage.getItem('userType') === "customer"){
+      localStorage.removeItem('customerId');  // Clear customer ID from localStorage
+    }
+    else{
+      localStorage.removeItem('executiveId');  // Clear customer ID from localStorage
+    }
     localStorage.removeItem('userType');
-  }
 
+  }
+  getCustomerId(): string | null {
+    if(localStorage.getItem('customerId')){
+      return localStorage.getItem('customerId');     // Store user ID (or customer ID)
+    }
+    else{
+      return localStorage.getItem('executiveId');     // Store user ID (or customer ID)
+    }
+  }  
   isAuthenticated(): boolean {
     return !!localStorage.getItem('jwt');  // Check if the JWT exists
   }

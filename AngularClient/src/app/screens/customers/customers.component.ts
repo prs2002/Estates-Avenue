@@ -28,12 +28,18 @@ export class CustomersComponent implements OnInit {
     );
   }
 
-  deleteEmployee(id: string): void {
+
+  deleteCustomer(email: string): void {
     if (confirm('Are you sure you want to delete this customer?')) {
-      this.userService.deleteUser(id).subscribe(
-        () => this.loadCustomers()
+      this.userService.deleteUserByEmail(email).subscribe(
+        () => {
+          this.loadCustomers(); // Refresh the list of executives after deletion
+        },
+        (error) => {
+          console.error('Error deleting customer:', error);
+        }
       );
     }
-  }
+  }  
 
 }
