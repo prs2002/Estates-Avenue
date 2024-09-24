@@ -66,20 +66,20 @@ namespace DotNetBackend.Controllers
             var existingUser = await _userService.FindByEmailAsync(user.Email);
             if (existingUser != null)
             {
-                return BadRequest("User already exists");
+                return BadRequest(new { message = "User already exists" }); // Return JSON object
             }
 
             // Proceed with user registration
             try
             {
                 await _userService.CreateAsync(user);
-                return Ok("User registered successfully : " + user.Id);
+                return Ok(new { message = "User registered successfully", userId = user.Id }); // Return JSON object
             }
             catch (Exception ex)
             {
                 // Log the exception (e.g., to a file or monitoring system)
                 Console.Error.WriteLine($"Error during user registration: {ex.Message}");
-                return StatusCode(500, "Internal server error during registration");
+                return StatusCode(500, new { message = "Internal server error during registration" }); // Return JSON object
             }
         }
 

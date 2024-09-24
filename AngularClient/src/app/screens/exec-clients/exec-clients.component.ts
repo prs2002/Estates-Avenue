@@ -10,7 +10,7 @@ import { CustomerRequest } from 'src/app/models/CustomerRequest';
 })
 export class ExecClientsComponent implements OnInit {
   executiveId!: string;
-  wishlist: CustomerRequest[] = [];
+  wishlist: any[] = [];
 
   constructor(private custReqService: CustReqService, private authService: AuthService) {}
 
@@ -20,6 +20,7 @@ export class ExecClientsComponent implements OnInit {
     this.custReqService.getExecutiveRequests(this.executiveId).subscribe({
       next: (response) => {
         this.wishlist = response;
+        console.log(this.wishlist);
       },
       error: (err) => {
         console.error('Failed to fetch wishlist', err);

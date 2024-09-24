@@ -16,6 +16,7 @@
           <thead>
             <tr>
               <th>Property ID</th>
+              <th>Property Name</th>
               <th>Location</th>
               <th>Status</th>
               <th>Customer Name</th>
@@ -26,6 +27,7 @@
           <tbody>
             <tr *ngFor="let request of wishlist">
               <td>{{ request.propertyId }}</td>
+              <td>{{ request.propertyName }}</td> <!-- Display property name -->
               <td>{{ request.locality }}</td>
               <td>{{ request.requestStatus }}</td>
               <td>{{ request.executiveDetails?.name || 'Not Assigned' }}</td>
