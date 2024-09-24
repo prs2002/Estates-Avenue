@@ -32,14 +32,14 @@ namespace DotNetBackend.Controllers
             }
             return Ok(user);
         }
-
+ 
         [HttpGet("getCustomers")]
         public async Task<IActionResult> GetCustomers()
         {
             var customers = await _userService.GetUsersByTypeAsync("customer");
             return Ok(customers);
         }
-
+        [Authorize(Roles ="manager")]
         [HttpGet("getExecutives")]
         public async Task<IActionResult> GetExecutives()
         {

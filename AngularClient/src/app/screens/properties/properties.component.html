@@ -48,9 +48,10 @@
         </div>
         <div class="flex">
             <div *ngFor="let property of filteredProperties" class="card">
-                <img [src]="property.imageUrl" alt="{{ property.name }}" alt="Real Estate Image" *ngIf="property.imageUrl" />
+                <img [src]="'../../../assets/' + property.name + '.jpg'" alt="{{ property.name }}" alt="Real Estate Image" />
                 <p class="cat">{{ property.propertyType }}</p>
                 <h1>{{ property.name }}</h1>
+                <p>{{ property.location }}</p>
                 <p class="price">{{ property.rate | currency:'INR' }}</p>
                 <p class="desc">{{ property.desc }}</p>
                 <button *ngIf="!isManager" class="edit-btn" (click)="addToWishlist(property)">Add to WishList</button>

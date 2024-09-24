@@ -22,12 +22,6 @@ public class Property
     [Column("description")]
     public string? Desc { get; set; }
 
-    [Column("executive_id")]
-    public string? ExecutiveId { get; set; }
-
-    [Column("customer_id")]
-    public string? CustomerId { get; set; }
-
     [Column("image_url")]
     public string? ImageUrl { get; set; }
 }

@@ -17,7 +17,7 @@ export class ExecDashboardComponent implements OnInit, OnDestroy {
   icon04 = faScrewdriverWrench;
 
   head: string = "PROPERTY MANAGEMENT SERVICES ELEVATED.";
-  about1: string = "“Property Management” not only includes the basic operation, control and oversight of real estate assets but it also means: developing strategies and taking actions to maximize property values and investment returns.";
+  about1: string = "“One of the largest and leading Real Estate Company within the UK, serving millions of customers across the country offering real estate related activities like buy different types of properties like Flats / Villas / Plots etc. The real estate company has historically been served by a large monolith system. This system has Customer information, Properties information, Agents information, Customer Requirements.";
   about2: string = " This is what separates COZY Management from the rest; we are driven to find ways to reduce expenditures, expand revenue streams, harmonize tenant relations and take actions today that will create value tomorrow.";
   rent: string = "In order to help your tenants stay on top of rent payments, we send out monthly invoices (including a detailed breakdown of charges to their account) to remind them to payment is coming due.";
   rentcollec: string = "Tenants can pay their rent online, in real time, via electronic fund transfers or even pay by credit card. Through this technology, we can offer our owners up-to-date information on demand and in a clean detailed fashion.";
@@ -25,7 +25,7 @@ export class ExecDashboardComponent implements OnInit, OnDestroy {
   randm: string = "Outside of responsiveness and organization, we thoroughly screen all of the vendors we work with to ensure your property is getting the best possible repair and/or maintenance work for the best possible price.";
 
   changingTexts: string[] = [
-    "PROFESSIONAL BOUTIQUE ASSET MANAGEMENT",
+    "PROFESSIONAL ASSET MANAGEMENT",
     "MAXIMIZING VALUE. MINIMIZING LIABILITY",
     "COMPETENCY. EXPERTISE"
   ];

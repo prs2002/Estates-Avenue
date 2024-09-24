@@ -14,12 +14,7 @@ namespace DotNetBackend.Controllers
             _customerRequestService = customerRequestService;
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> AddRequest([FromBody] CustomerRequest request)
-        //{
-        //    var createdRequest = await _customerRequestService.AddCustomerRequestAsync(request);
-        //  return Ok(createdRequest);
-        //}
+
         [HttpPost]
         public async Task<IActionResult> AddToWishlist([FromBody] CustomerRequest request)
         {

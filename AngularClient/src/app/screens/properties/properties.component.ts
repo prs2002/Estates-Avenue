@@ -82,7 +82,7 @@ export class PropertiesComponent implements OnInit {
     this.propertyService.getProperties().subscribe(data => {
       this.properties = data.map(property => ({
         ...property,
-        imageUrl: `assets/images/${property.imageUrl}` // Construct the image URL
+        imageUrl: `assets/images/${property.name}.jpg` // Construct the image URL
     }));
       this.filteredProperties = data; // Initially display all properties
     });
@@ -98,15 +98,9 @@ export class PropertiesComponent implements OnInit {
     }
   }
  
-  // createProperty(): void {
-  //   this.propertyService.createProperty(this.newProperty,this.newProperty.imageUrl).subscribe(response => {
-  //       this.fetchProperties(); // Refresh property list
-  //       this.isPropertyFormVisible = false; // Hide form after creation
-  //   });
-  // }
   createProperty(): void {
     if (this.selectedImage) {
-      this.propertyService.createProperty(this.newProperty, this.newProperty.imageUrl).subscribe(response => {
+      this.propertyService.createProperty(this.newProperty).subscribe(response => {
         this.fetchProperties(); // Refresh property list
         this.isPropertyFormVisible = false; // Hide form after creation
         // Reset newProperty if needed

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetBackend", "DotNetBackend\DotNetBackend.csproj", "{940431A0-9A7A-4F15-A877-F8911CB16170}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetBackend", "DotNetBackend\DotNetBackend.csproj", "{940431A0-9A7A-4F15-A877-F8911CB16170}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetBackend.Tests", "DotNetBackend.Tests\DotNetBackend.Tests.csproj", "{1E5D5F16-C957-4FED-A273-4EC17E6F886C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{940431A0-9A7A-4F15-A877-F8911CB16170}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{940431A0-9A7A-4F15-A877-F8911CB16170}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{940431A0-9A7A-4F15-A877-F8911CB16170}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E5D5F16-C957-4FED-A273-4EC17E6F886C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E5D5F16-C957-4FED-A273-4EC17E6F886C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E5D5F16-C957-4FED-A273-4EC17E6F886C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E5D5F16-C957-4FED-A273-4EC17E6F886C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

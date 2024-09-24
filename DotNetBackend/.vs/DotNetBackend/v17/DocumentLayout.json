@@ -3,16 +3,32 @@
   "WorkspaceRootPath": "D:\\Projects\\Others\\EstateVentures\\DotNetBackend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{940431A0-9A7A-4F15-A877-F8911CB16170}|DotNetBackend\\DotNetBackend.csproj|d:\\projects\\others\\estateventures\\dotnetbackend\\dotnetbackend\\controllers\\propertycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{940431A0-9A7A-4F15-A877-F8911CB16170}|DotNetBackend\\DotNetBackend.csproj|solutionrelative:dotnetbackend\\controllers\\propertycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{940431A0-9A7A-4F15-A877-F8911CB16170}|DotNetBackend\\DotNetBackend.csproj|d:\\projects\\others\\estateventures\\dotnetbackend\\dotnetbackend\\controllers\\customerrequestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{940431A0-9A7A-4F15-A877-F8911CB16170}|DotNetBackend\\DotNetBackend.csproj|solutionrelative:dotnetbackend\\controllers\\customerrequestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{940431A0-9A7A-4F15-A877-F8911CB16170}|DotNetBackend\\DotNetBackend.csproj|d:\\projects\\others\\estateventures\\dotnetbackend\\dotnetbackend\\models\\customerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{940431A0-9A7A-4F15-A877-F8911CB16170}|DotNetBackend\\DotNetBackend.csproj|solutionrelative:dotnetbackend\\models\\customerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{940431A0-9A7A-4F15-A877-F8911CB16170}|DotNetBackend\\DotNetBackend.csproj|d:\\projects\\others\\estateventures\\dotnetbackend\\dotnetbackend\\services\\customerrequestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{940431A0-9A7A-4F15-A877-F8911CB16170}|DotNetBackend\\DotNetBackend.csproj|solutionrelative:dotnetbackend\\services\\customerrequestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{940431A0-9A7A-4F15-A877-F8911CB16170}|DotNetBackend\\DotNetBackend.csproj|d:\\projects\\others\\estateventures\\dotnetbackend\\dotnetbackend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{940431A0-9A7A-4F15-A877-F8911CB16170}|DotNetBackend\\DotNetBackend.csproj|solutionrelative:dotnetbackend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{940431A0-9A7A-4F15-A877-F8911CB16170}|DotNetBackend\\DotNetBackend.csproj|d:\\projects\\others\\estateventures\\dotnetbackend\\dotnetbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{940431A0-9A7A-4F15-A877-F8911CB16170}|DotNetBackend\\DotNetBackend.csproj|solutionrelative:dotnetbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{940431A0-9A7A-4F15-A877-F8911CB16170}|DotNetBackend\\DotNetBackend.csproj|d:\\projects\\others\\estateventures\\dotnetbackend\\dotnetbackend\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{940431A0-9A7A-4F15-A877-F8911CB16170}|DotNetBackend\\DotNetBackend.csproj|solutionrelative:dotnetbackend\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{940431A0-9A7A-4F15-A877-F8911CB16170}|DotNetBackend\\DotNetBackend.csproj|d:\\projects\\others\\estateventures\\dotnetbackend\\dotnetbackend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{940431A0-9A7A-4F15-A877-F8911CB16170}|DotNetBackend\\DotNetBackend.csproj|solutionrelative:dotnetbackend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{940431A0-9A7A-4F15-A877-F8911CB16170}|DotNetBackend\\DotNetBackend.csproj|d:\\projects\\others\\estateventures\\dotnetbackend\\dotnetbackend\\models\\property.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{940431A0-9A7A-4F15-A877-F8911CB16170}|DotNetBackend\\DotNetBackend.csproj|solutionrelative:dotnetbackend\\models\\property.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,41 +54,94 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PropertyController.cs",
-              "DocumentMoniker": "D:\\Projects\\Others\\EstateVentures\\DotNetBackend\\DotNetBackend\\Controllers\\PropertyController.cs",
-              "RelativeDocumentMoniker": "DotNetBackend\\Controllers\\PropertyController.cs",
-              "ToolTip": "D:\\Projects\\Others\\EstateVentures\\DotNetBackend\\DotNetBackend\\Controllers\\PropertyController.cs",
-              "RelativeToolTip": "DotNetBackend\\Controllers\\PropertyController.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAAgwDUAAABPAAAA",
+              "DocumentIndex": 2,
+              "Title": "CustomerRequestService.cs",
+              "DocumentMoniker": "D:\\Projects\\Others\\EstateVentures\\DotNetBackend\\DotNetBackend\\Services\\CustomerRequestService.cs",
+              "RelativeDocumentMoniker": "DotNetBackend\\Services\\CustomerRequestService.cs",
+              "ToolTip": "D:\\Projects\\Others\\EstateVentures\\DotNetBackend\\DotNetBackend\\Services\\CustomerRequestService.cs",
+              "RelativeToolTip": "DotNetBackend\\Services\\CustomerRequestService.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAAwBIAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-24T03:54:21.02Z",
+              "WhenOpened": "2024-09-24T11:49:30.883Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\Projects\\Others\\EstateVentures\\DotNetBackend\\DotNetBackend\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "DotNetBackend\\Services\\UserService.cs",
+              "ToolTip": "D:\\Projects\\Others\\EstateVentures\\DotNetBackend\\DotNetBackend\\Services\\UserService.cs",
+              "RelativeToolTip": "DotNetBackend\\Services\\UserService.cs",
+              "ViewState": "AQIAAFgAAAAAAAAAAAAcwGwAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T11:45:08.374Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "CustomerRequest.cs",
+              "DocumentMoniker": "D:\\Projects\\Others\\EstateVentures\\DotNetBackend\\DotNetBackend\\Models\\CustomerRequest.cs",
+              "RelativeDocumentMoniker": "DotNetBackend\\Models\\CustomerRequest.cs",
+              "ToolTip": "D:\\Projects\\Others\\EstateVentures\\DotNetBackend\\DotNetBackend\\Models\\CustomerRequest.cs",
+              "RelativeToolTip": "DotNetBackend\\Models\\CustomerRequest.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAwBkAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T11:33:25.084Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Property.cs",
+              "DocumentMoniker": "D:\\Projects\\Others\\EstateVentures\\DotNetBackend\\DotNetBackend\\Models\\Property.cs",
+              "RelativeDocumentMoniker": "DotNetBackend\\Models\\Property.cs",
+              "ToolTip": "D:\\Projects\\Others\\EstateVentures\\DotNetBackend\\DotNetBackend\\Models\\Property.cs",
+              "RelativeToolTip": "DotNetBackend\\Models\\Property.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAzwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T11:33:03.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Projects\\Others\\EstateVentures\\DotNetBackend\\DotNetBackend\\Models\\User.cs",
+              "RelativeDocumentMoniker": "DotNetBackend\\Models\\User.cs",
+              "ToolTip": "D:\\Projects\\Others\\EstateVentures\\DotNetBackend\\DotNetBackend\\Models\\User.cs",
+              "RelativeToolTip": "DotNetBackend\\Models\\User.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAwBsAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T11:32:39.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "UserController.cs",
               "DocumentMoniker": "D:\\Projects\\Others\\EstateVentures\\DotNetBackend\\DotNetBackend\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "DotNetBackend\\Controllers\\UserController.cs",
               "ToolTip": "D:\\Projects\\Others\\EstateVentures\\DotNetBackend\\DotNetBackend\\Controllers\\UserController.cs",
               "RelativeToolTip": "DotNetBackend\\Controllers\\UserController.cs",
-              "ViewState": "AQIAAJEAAAAAAAAAAAAAAFIAAAAAAAAA",
+              "ViewState": "AQIAAFIAAAAAAAAAAAAwwGQAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-23T21:23:43.62Z",
+              "WhenOpened": "2024-09-24T11:09:41.406Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Projects\\Others\\EstateVentures\\DotNetBackend\\DotNetBackend\\Program.cs",
-              "RelativeDocumentMoniker": "DotNetBackend\\Program.cs",
-              "ToolTip": "D:\\Projects\\Others\\EstateVentures\\DotNetBackend\\DotNetBackend\\Program.cs",
-              "RelativeToolTip": "DotNetBackend\\Program.cs",
-              "ViewState": "AQIAAEEAAAAAAAAAAAAuwGAAAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "CustomerRequestController.cs",
+              "DocumentMoniker": "D:\\Projects\\Others\\EstateVentures\\DotNetBackend\\DotNetBackend\\Controllers\\CustomerRequestController.cs",
+              "RelativeDocumentMoniker": "DotNetBackend\\Controllers\\CustomerRequestController.cs",
+              "ToolTip": "D:\\Projects\\Others\\EstateVentures\\DotNetBackend\\DotNetBackend\\Controllers\\CustomerRequestController.cs",
+              "RelativeToolTip": "DotNetBackend\\Controllers\\CustomerRequestController.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAYwBcAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-22T20:31:12.901Z"
+              "WhenOpened": "2024-09-24T11:09:27.041Z",
+              "EditorCaption": ""
             }
           ]
         }
