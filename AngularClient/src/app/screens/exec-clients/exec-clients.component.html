@@ -30,9 +30,9 @@
               <td>{{ request.propertyName }}</td> <!-- Display property name -->
               <td>{{ request.locality }}</td>
               <td>{{ request.requestStatus }}</td>
-              <td>{{ request.executiveDetails?.name || 'Not Assigned' }}</td>
-              <td>{{ request.executiveDetails?.email || 'Not Assigned' }}</td>
-              <td>{{ request.executiveDetails?.number || 'Not Assigned' }}</td>
+              <td>{{ request.customerDetails?.name || 'Not Assigned' }}</td>
+              <td>{{ request.customerDetails?.email || 'Not Assigned' }}</td>
+              <td>{{ request.customerDetails?.number || 'Not Assigned' }}</td>
             </tr>
           </tbody>
         </table>
